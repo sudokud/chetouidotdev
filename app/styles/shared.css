@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'IBM Plex Sans Light';
+    src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+html, body{
+    font-family: 'IBM Plex Sans';
+    text-rendering: optimizeLegibility
+}
+
+.layout-underline {
+    position: absolute;
+    left: 50%;
+    top: 130%;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background-color: #3e3e3e;
+}
+
+.site-version, .copyright {
+    font-size: 15px;
+    font-family: 'IBM Plex Sans Light';
+    color: #333333;
+    position: fixed;
+    z-index: 99;
+  }
+.site-version{
+    right: 3rem;
+    bottom: 3rem;
+}
+.copyright{
+    left: 3rem;
+    bottom: 3rem;
+}
+.clock{
+    font-family: 'IBM Plex Sans Light';
+    font-size: 15px;
+    color: #333333;
+    position: fixed;
+    left: 1.6rem;
+    top: 1.6rem;
+    z-index: 99;
+}
