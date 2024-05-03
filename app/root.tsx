@@ -47,7 +47,7 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <Time/>
         <Socials/>
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-dvh border">
           <Navigation/>
           <div className="container h-4/6 mx-auto max-w-600 py-9 px-9 rounded-3xl">
             <Outlet />

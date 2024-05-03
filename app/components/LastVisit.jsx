@@ -1,10 +1,12 @@
+// testing things out with the geolocation API
 import { createClient } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useQuery } from "react-query";
+// transform GetGeo to React Hook 
 import GetGeo from '../utils/getIp'
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-const supabaseUrl = 'https://wqcevgxpfuewrkyuntgo.supabase.co'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 
@@ -15,7 +17,7 @@ export default function LastVisit() {
   
   const getData = async () => {
     const res = await axios.get("https://api.ipify.org/?format=json");
-    // console.log('axios request',res.data);
+    //pass res.data.ip directly to GetGeo function instead of getting it from state hook
     setIP(res.data.ip);
     const res2 = await GetGeo(res.data.ip);
     setInfo(res2)
@@ -25,9 +27,6 @@ export default function LastVisit() {
     //passing getData method to the lifecycle method
     getData();
   }, []);
-  
-
-  // console.log('info :', info)
  
   const res = useQuery('ip', () => supabase.from('location').select('*'))
   
@@ -36,20 +35,18 @@ export default function LastVisit() {
   }
   if(res.status == 'loading'){
     return(
-      <div>
-     Loading...
-    </div>
+      <div className="text-2xl text-gray-500 ">
+        ...
+      </div>
   )
 }
- 
-    // const ip = res.data.data[0].ip
-    return(
-    <div>
-      <h6 className="text-2xl text-gray-500 ">
-      {info.timezone}
-      </h6>
-    </div>
-    )
+  return(
+  <div>
+    <h6 className="text-2xl text-gray-500 ">
+      Nice to have a visitor from {info.timezone}
+    </h6>
+  </div>
+  )
 }
 
 

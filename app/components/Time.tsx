@@ -23,7 +23,7 @@ export default function Time() {
 
   // const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     return (
-      <span className=" p-9">
+      <span>
         <p 
           className=" clock py-2 w-28 flex justify-center "
           >

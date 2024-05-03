@@ -16,9 +16,9 @@ export default function Index() {
   <section  className='container mx-auto h-full flex justify-center items-center' >
     <PresenceMotion>
       <h6 className="text-2xl text-gray-500">
-          Hello 👋🏻 , I'm a web developer based in Algeria!
+        Hello 👋🏻 , <br/> I'm a web developer based in Algeria!
       </h6>
-      {/* <LastVisit/> */}
+      <LastVisit/>
     </PresenceMotion>
   </section>
   )
