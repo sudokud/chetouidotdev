@@ -8,5 +8,5 @@ export function Paragraph ({children}){
     >{children}</p>
 }
 export function SmallTitle ({children}){
-    return <h4 className="text-xl">{children}</h4>
+    return <h4 className="text-lg my-3">{children}</h4>
 }
