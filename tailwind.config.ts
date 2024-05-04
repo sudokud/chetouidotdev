@@ -15,7 +15,7 @@ export default {
       },
       maxWidth:{
         'lg':'1024px',
-        '600':'600px'
+        '560': '560px'
       },
       minHeight:{
         '50vh':"50vh"
