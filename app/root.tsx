@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -15,6 +16,10 @@ import Footer from '~/components/Footer'
 import Socials from '~/components/Socials'
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { AnimatePresence, motion } from "framer-motion";
+import { Key, Pathname } from "./utils/Location";
+import Page, { Modiv } from "./components/Page";
+import { useOutlet } from "@remix-run/react";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: css },
@@ -42,16 +47,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const outlet = useOutlet()
+  const key = Pathname()
+  // console.log(key)
   return (
     <React.Fragment>
       <QueryClientProvider client={queryClient}>
         <Time/>
         <Socials/>
-        <div className="flex flex-col h-dvh border">
+        <div className="flex flex-col">
           <Navigation/>
-          <div className="container h-4/6 mx-auto max-w-600 py-9 px-9 rounded-3xl">
-            <Outlet />
-          </div>
+          <AnimatePresence mode="wait" >
+            <Page
+              key={key}
+            >
+            {outlet}
+            </Page>
+          </AnimatePresence>
+           
         </div>
         <span className="site-version">v1.0</span>
         <Footer/>
