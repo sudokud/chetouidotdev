@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import ArticleCard from "~/components/Card";
-import PresenceMotion from "~/components/PresenceMotion"
+import Page, { Modiv } from "~/components/Page";
+// import PresenceMotion from "~/components/PresenceMotion"
 export const meta: MetaFunction = () => {
   return [
     { title: "Writing" },
@@ -9,10 +10,12 @@ export const meta: MetaFunction = () => {
 };
 export default function Writing() {
   return (
-    <div className="h-full flex justify-center items-center">
-      <PresenceMotion>
+   
+
+      <div className="flex justify-center items-center">
         <ArticleCard />
-      </PresenceMotion>
-    </div>
+      </div>
+   
+     
   );
 }
