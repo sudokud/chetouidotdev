@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { motion } from 'framer-motion'
+import { easeOut, motion } from 'framer-motion'
 import joinClasses from 'classnames'
 
 
@@ -7,23 +7,27 @@ type ChildrenProps = {
   className?: string,
   children: ReactElement | ReactElement[] | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null
 }
+const transition = 'opacity .32s cubic-bezier(.4,0,.6,1) 80ms,visibility .32s step-end 80ms'
+
 export const variants = {
   visible: {
-    opacity:1,
     y:0,
+    opacity:1,
     transition: {
-      type:'spring',
-      duration: 0.4,
+      type:'tween',
+      ease:[.4,0,.6,1],
+      duration:0.35,
       when: "beforeChildren",
       staggerChildren: 0.1
     }
   },
   hidden: {
-    y:50,
+    y:30,
     opacity:0,
     transition: {
-      type:'spring',
-      duration:0.4,
+      type:'tween',
+      ease:[.4,0,.6,1],
+      duration:0.35,
       when: "afterChildren",
     },
   }
@@ -59,7 +63,7 @@ const Page = ({ children, className }:ChildrenProps) => {
       variants={variants}
       className={
         joinClasses(
-          "relative pt-28 pb-4 px-2.5 lg:px-0",
+          "relative p-8 pb-4 px-2.5 lg:px-0",
           className
         )}>
       {children}

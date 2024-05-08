@@ -20,7 +20,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Key, Pathname } from "./utils/Location";
 import Page, { Modiv } from "./components/Page";
 import { useOutlet } from "@remix-run/react";
-
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: css },
   { rel: "stylesheet", href: stylesheet },
@@ -37,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-zinc-100 dark:bg-zinc-800">
+      <body className="">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -55,7 +54,7 @@ export default function App() {
       <QueryClientProvider client={queryClient}>
         <Time/>
         <Socials/>
-        <div className="flex flex-col">
+        <div className="flex flex-col overflow-hidden">
           <Navigation/>
           <AnimatePresence mode="wait" >
             <Page
@@ -64,7 +63,6 @@ export default function App() {
             {outlet}
             </Page>
           </AnimatePresence>
-           
         </div>
         <span className="site-version">v1.0</span>
         <Footer/>

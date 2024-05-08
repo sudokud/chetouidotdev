@@ -1,49 +1,91 @@
+
 @font-face {
-    font-family: 'IBM Plex Sans';
-    src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf') format('truetype');
-    font-weight: 400;
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
 }
 @font-face {
-    font-family: 'IBM Plex Sans Light';
-    src: url('/fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf') format('truetype');
-    font-weight: 300;
+  font-family: "JetBrains Mono Thin";
+  src: url("/fonts/JetBrainsMono-Thin.woff2") format("woff2");
 }
-html, body{
-    font-family: 'IBM Plex Sans';
-    text-rendering: optimizeLegibility
+
+body{
+  background: #fafafa;
+  font-family: "JetBrains Mono";
+  text-rendering: optimizeLegibility;
+  font-weight: 400;
+}
+a,
+p{
+  font-family: "JetBrains Mono";
+  text-rendering: optimizeLegibility;
 }
 
 .layout-underline {
-    position: absolute;
-    left: 50%;
-    top: 130%;
-    width: 4px;
-    height: 4px;
-    border-radius: 100%;
-    background-color: #3e3e3e;
+  position: absolute;
+  left: 50%;
+  top: 130%;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: #3e3e3e;
 }
 
-.site-version, .copyright {
-    font-size: 15px;
-    font-family: 'IBM Plex Sans Light';
-    color: #333333;
-    position: fixed;
-    z-index: 99;
-  }
-.site-version{
-    right: 3rem;
-    bottom: 3rem;
+.site-version,
+.copyright {
+  font-size: 9px;
+  font-family: "JetBrains Mono";
+  color: #333333;
+  position: fixed;
+  z-index: 99;
 }
-.copyright{
-    left: 3rem;
-    bottom: 3rem;
+.site-version {
+  left: 1rem;
+  bottom: 1.3rem;
 }
-.clock{
-    font-family: 'IBM Plex Sans Light';
-    font-size: 15px;
-    color: #333333;
-    position: fixed;
-    left: 1.6rem;
-    top: 1.6rem;
-    z-index: 99;
+.copyright {
+  right: 1rem;
+  bottom: 1.3rem;
+}
+.clock {
+  font-family: "JetBrains Mono Thin";
+  font-size: 13px;
+  color: rgb(110, 110, 115);
+  position: fixed;
+  right: 0;
+  top: 1.6rem;
+  z-index: 99;
+}
+
+.sidebar {
+  width: 60px;
+  background-color: transparent;
+  box-shadow: 1px 0 0 0 rgba(200, 200, 200, 0.3);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: -webkit-fixed;
+  position: fixed;
+  top: 0;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.m-fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  transition: all cubic-bezier(0.455,0.030,0.515,0.955) 320ms;
+  position:absolute;
+  top:0;
+  transform: translate3d(28px, 0, 0);
+}
+.m-fadeIn {
+  top:0;
+  position:absolute;
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(32px, 0, 0);
+  transition: all cubic-bezier(0.455,0.030,0.515,0.955) 320ms;
 }

@@ -12,8 +12,9 @@ const spring = {
 export default function Navigation() {
   const location = useLocation();
 return (
+
   <nav className="nav py-9 flex justify-center bg-gray container mx-auto">
-    <div className="">
+    <div className=" ">
       <div className="p-3">
         <Profile/>
         <div className="flex mt-20 justify-center">
