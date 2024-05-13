@@ -5,12 +5,11 @@ const WorkerUrl = import.meta.env.VITE_WORKER_URL;
 
 export default function LastVisit() {
   const [visitorGeoInfo, setVisitorGeoInfo] = useState({});
-  
+
   async function  fetchVisitorGeo () {
   const response = await axios.get(`${WorkerUrl}api/getlastvisitor`);
   const info = response.data[0]
   setVisitorGeoInfo(info)
-  // console.log('info:', info)
 }
   const visitorGeo = useQuery({ queryKey: ['Geos'], queryFn: fetchVisitorGeo })
 
