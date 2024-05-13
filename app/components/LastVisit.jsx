@@ -7,8 +7,10 @@ export default function LastVisit() {
   const [visitorGeoInfo, setVisitorGeoInfo] = useState({});
   async function  fetchVisitorGeo () {
   const response = await axios.get(`${WorkerUrl}api/getlastvisitor`);
-  console.log('response',response)
-  setVisitorGeoInfo(response.data)
+  if(response.data.length > 0){
+    const info = response.data[0]
+    setVisitorGeoInfo(info)
+  }
 }
   const visitorGeo = useQuery({ queryKey: ['Geos'], queryFn: fetchVisitorGeo })
 
@@ -21,7 +23,7 @@ export default function LastVisit() {
   return (
     <div>
       <h2 className="text-2xl text-zinc-700 ">
-        Wow a visitor from {visitorGeoInfo.country} {visitorGeoInfo.region}
+        Wow a visitor from {visitorGeoInfo.Country} {visitorGeoInfo.Region}
       </h2>
     </div>
   );
