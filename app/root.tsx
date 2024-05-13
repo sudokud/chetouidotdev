@@ -6,7 +6,7 @@ import stylesheet from "~/tailwind.css?url";
 import CustomLayout from "./components/CustomLayout";
 import React from "react";
 import { useOutlet } from "@remix-run/react";
-
+import { Loader } from '@geist-ui/icons'
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: css },
   { rel: "stylesheet", href: stylesheet },
@@ -38,7 +38,7 @@ export default function App() {
 export function HydrateFallback() {
   return (
     <div className="container h-screen flex justify-center items-center">
-      <p>Loading...</p>
+      <p><Loader/></p>
     </div>
   );
 }
