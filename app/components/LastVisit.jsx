@@ -1,36 +1,41 @@
-import { useState } from "react";
 import axios from "axios";
 import { useQuery } from "react-query";
 const WorkerUrl = import.meta.env.VITE_WORKER_URL;
 
 export default function LastVisit() {
-  const [visitorGeoInfo, setVisitorGeoInfo] = useState({});
 
-  async function  fetchVisitorGeo () {
-  const response = await axios.get(`${WorkerUrl}api/getlastvisitor`);
-  const info = response.data[0]
-  setVisitorGeoInfo(info)
-}
-async function  postVisitorGeo () {
-  if(!visitorGeo.isLoading){
-    await axios.get(`${WorkerUrl}api/updatevisitor`);
+  async function getVisitorInfos() {
+    return await axios.get(`${WorkerUrl}api/getlastvisitor`);
   }
-}
-  const visitorGeo = useQuery({ queryKey: ['getVisitorGeos'], queryFn: fetchVisitorGeo })
-  // post new user geo infos only after fetching last user is success or !Pendibg
+  async function updateVisitorInfos() {
+    return await axios.get(`${WorkerUrl}api/updatevisitor`);
+  }
 
-  const updateVisitorGeo = useQuery({ queryKey: ['updateVisitorGeos'], queryFn: postVisitorGeo })
-  // console.log('update visitor geo status',updateVisitorGeo.status)
-  if (visitorGeo.status == "error") {
-    return <div>Error</div>;
-  }
-  if (visitorGeo.status == "loading") {
+  const {isLoading, data} = useQuery({
+    queryKey: ["geolocation"],
+    queryFn: getVisitorInfos,
+  });
+  // if(!isLoading){
+  //   console.log("data from get visitor infos", data);
+  // }
+  const country = data?.data[0].Country
+
+  const result = useQuery({
+    queryKey: ["updateVisitorInfos"],
+    queryFn: updateVisitorInfos,
+    enabled: !!country,
+  });
+// console.log('result of update :', result)
+  // if (visitorGeo.status == "error") {
+  //   return <div>Error</div>;
+  // }
+  if (isLoading) {
     return <div className="text-2xl text-gray-500 ">...</div>;
   }
   return (
     <div>
       <h2 className="text-xs text-gray-43 ">
-        last visit from {visitorGeoInfo.Country} | {visitorGeoInfo.Region}
+        last visit from {data.data[0].Country} | {data.data[0].Region}
       </h2>
     </div>
   );
