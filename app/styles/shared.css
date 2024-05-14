@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @font-face {
   font-family: "JetBrains Mono";
   src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
@@ -15,8 +17,7 @@ body{
   text-rendering: optimizeLegibility;
   font-weight: 400;
 }
-a,
-p{
+p,h1,h3,h5{
   font-family: "JetBrains Mono";
   text-rendering: optimizeLegibility;
 }
@@ -33,9 +34,7 @@ p{
 
 .site-version,
 .copyright {
-  font-size: 9px;
   font-family: "JetBrains Mono";
-  color: #333333;
   position: fixed;
   z-index: 99;
 }

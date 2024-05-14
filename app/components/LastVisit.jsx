@@ -11,8 +11,14 @@ export default function LastVisit() {
   const info = response.data[0]
   setVisitorGeoInfo(info)
 }
-  const visitorGeo = useQuery({ queryKey: ['Geos'], queryFn: fetchVisitorGeo })
-
+async function  postVisitorGeo () {
+  const response = await axios.get(`${WorkerUrl}api/updatevisitor`);
+  const info = response.data.success
+  console.log('', info)
+}
+  const visitorGeo = useQuery({ queryKey: ['getVisitorGeos'], queryFn: fetchVisitorGeo })
+  const updateVisitorGeo = useQuery({ queryKey: ['updateVisitorGeos'], queryFn: postVisitorGeo })
+  console.log('update visitor geo status',updateVisitorGeo.status)
   if (visitorGeo.status == "error") {
     return <div>Error</div>;
   }
@@ -21,8 +27,8 @@ export default function LastVisit() {
   }
   return (
     <div>
-      <h2 className="text-2xl text-zinc-700 ">
-        you're visiting from {visitorGeoInfo.Country} {visitorGeoInfo.Region}
+      <h2 className="text-xs text-gray-43 ">
+        last visit from {visitorGeoInfo.Country} | {visitorGeoInfo.Region}
       </h2>
     </div>
   );

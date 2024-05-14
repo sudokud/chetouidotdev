@@ -2,14 +2,12 @@ import { Links, Meta, Scripts, ScrollRestoration } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
 import css from "./styles/shared.css?url";
-import stylesheet from "~/tailwind.css?url";
 import CustomLayout from "./components/CustomLayout";
 import React from "react";
 import { useOutlet } from "@remix-run/react";
 import { Loader } from '@geist-ui/icons'
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: css },
-  { rel: "stylesheet", href: stylesheet },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {

@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 import type { Config } from 'tailwindcss'
 
 export default {
@@ -5,6 +6,9 @@ export default {
   darkMode: 'selector',
   theme: {
     extend: {
+      colors: {
+        'gray-43': 'hsl(0 0% 43.5%)',
+      },
       fontSize: {
         'content':['15px', '28px']
       },

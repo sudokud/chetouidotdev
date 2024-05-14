@@ -17,7 +17,6 @@ export default function Index() {
         <h6 className="text-2xl">
           Hello 👋🏻 , <br /> I'm a web developer based in Algeria!
         </h6>
-        <LastVisit />
       </div>
     </section>
   );

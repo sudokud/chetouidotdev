@@ -28,7 +28,7 @@ export default function CustomLayout({
           <Page key={key}>{children}</Page>
         </AnimatePresence>
       </div>
-      <span className="site-version">v1.0</span>
+      <span className="text-xs text-gray-43 site-version">v1.0</span>
       <Footer />
     </QueryClientProvider>
   );
