@@ -14,11 +14,14 @@ export default function LastVisit() {
 async function  postVisitorGeo () {
   const response = await axios.get(`${WorkerUrl}api/updatevisitor`);
   const info = response.data.success
-  console.log('', info)
+  // console.log('', info)
 }
   const visitorGeo = useQuery({ queryKey: ['getVisitorGeos'], queryFn: fetchVisitorGeo })
-  const updateVisitorGeo = useQuery({ queryKey: ['updateVisitorGeos'], queryFn: postVisitorGeo })
-  console.log('update visitor geo status',updateVisitorGeo.status)
+  // post new user geo infos only after fetching last user is success or !Pendibg
+  if(visitorGeo.isSuccess){
+    const updateVisitorGeo = useQuery({ queryKey: ['updateVisitorGeos'], queryFn: postVisitorGeo })
+  }
+  // console.log('update visitor geo status',updateVisitorGeo.status)
   if (visitorGeo.status == "error") {
     return <div>Error</div>;
   }
