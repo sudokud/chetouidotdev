@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@font-face {
+/* @font-face {
   font-family: "JetBrains Mono";
   src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
   font-weight: 400;
@@ -9,57 +9,68 @@
 @font-face {
   font-family: "JetBrains Mono Thin";
   src: url("/fonts/JetBrainsMono-Thin.woff2") format("woff2");
+} */
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --system-blue: rgb(30, 110, 247);
 }
 
-body{
-  background: #fafafa;
-  font-family: "JetBrains Mono";
+body {
+  background: white;
+  font-family: var(--system-ui);
   text-rendering: optimizeLegibility;
+  font-weight: 300;
+}
+.title-human {
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+.title-dwarf {
+  font-size: 18px;
+  line-height: 1.15;
   font-weight: 400;
 }
-p,h1,h3,h5{
-  font-family: "JetBrains Mono";
-  text-rendering: optimizeLegibility;
-}
-
-.layout-underline {
+.active-link-dot {
   position: absolute;
   left: 50%;
-  top: 130%;
-  width: 4px;
-  height: 4px;
+  top: 100%;
+  width: 3pt;
+  height: 3pt;
   border-radius: 100%;
-  background-color: #3e3e3e;
+  z-index: -1;
 }
 
 .site-version,
-.copyright {
-  font-family: "JetBrains Mono";
+.footer {
   position: fixed;
   z-index: 99;
 }
 .site-version {
-  left: 1rem;
-  bottom: 1.3rem;
+  left: 5rem;
+  top: 5rem;
 }
-.copyright {
+.footer {
   right: 1rem;
   bottom: 1.3rem;
 }
 .clock {
-  font-family: "JetBrains Mono Thin";
-  font-size: 13px;
-  color: rgb(110, 110, 115);
+  font-size: 16px;
+  /* background-color: rgb(68, 68, 68);
+  color: rgb(230, 230, 230); */
   position: fixed;
-  right: 0;
-  top: 1.6rem;
-  z-index: 99;
+  left: 1rem;
+  top: 1rem;
+  height: 28px;
+  z-index: 9998;
+  overflow: hidden;
+  /* navbar zindex 9997 */
 }
 
 .sidebar {
   width: 60px;
   background-color: transparent;
-  box-shadow: 1px 0 0 0 rgba(200, 200, 200, 0.3);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -71,20 +82,42 @@ p,h1,h3,h5{
   justify-content: center;
   z-index: 200;
 }
-
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 52px;
+  padding-right: 2pt;
+  /* min-width: 1024px;
+  z-index: 9997;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(30, 30, 255, 0.8); */
+}
 .m-fadeOut {
   visibility: hidden;
   opacity: 0;
-  transition: all cubic-bezier(0.455,0.030,0.515,0.955) 320ms;
-  position:absolute;
-  top:0;
+  transition: all cubic-bezier(0.455, 0.03, 0.515, 0.955) 320ms;
+  position: absolute;
+  top: 0;
   transform: translate3d(28px, 0, 0);
 }
 .m-fadeIn {
-  top:0;
-  position:absolute;
+  top: 0;
+  position: absolute;
   visibility: visible;
   opacity: 1;
   transform: translate3d(32px, 0, 0);
-  transition: all cubic-bezier(0.455,0.030,0.515,0.955) 320ms;
+  transition: all cubic-bezier(0.455, 0.03, 0.515, 0.955) 320ms;
+}
+
+.mask {
+  mask-image: linear-gradient(to top, rgb(0, 0, 0) 25%, transparent);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  width: 100vw;
+  height: clamp(60px, 8vh, 160px);
+  bottom: 0px;
+  position: fixed;
 }

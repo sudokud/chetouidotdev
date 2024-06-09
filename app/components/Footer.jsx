@@ -1,13 +1,13 @@
 import LastVisit from "./LastVisit";
 
-export default function Footer () {
-return (
-    <footer className="copyright"> 
-        <div className="flex justify-center">
-            <h6 className="text-gray-500">
-            <LastVisit/>
-            </h6>
-        </div>
+// import { Map } from "@geist-ui/icons";
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="flex justify-center items-center">
+        <LastVisit/>
+      </div>
     </footer>
-)
+  );
 }

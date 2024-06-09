@@ -3,10 +3,13 @@ export function Paragraph ({children}){
     className="
     antialiased
     text-content
-    my-4
+    my-3
     "
     >{children}</p>
 }
-export function SmallTitle ({children}){
-    return <h4 className="text-lg my-3">{children}</h4>
+export function TitleDwarf ({children}){
+    return <h5 className="title-dwarf">{children}</h5>
+}
+export function HumanTitle ({children}){
+    return <h3 className="mb-6 title-human">{children}</h3>
 }

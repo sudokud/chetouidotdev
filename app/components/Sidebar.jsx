@@ -1,14 +1,14 @@
 // GET Shit WORK, Polish Code Later 
 import { Link } from "@remix-run/react";
 import Github from "@geist-ui/icons/github";
-import ReadCVIcon from "./ReadCvIcon";
+import ReadCVIcon from "./icons/ReadCvIcon";
 import { useState } from "react";
 import joinClasses from "classnames";
 
 function Tooltip({ text, className }) {
   return <span className={className}>{text}</span>;
 }
-export default function Socials() {
+export default function Sidebar() {
   const [Rcv, setRcvVisible] = useState(false);
   const [GH, setGhVisible] = useState(false);
   const RcvClass = joinClasses(

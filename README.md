@@ -1,47 +1,32 @@
-# templates/spa
+# chetoui.dev
 
-This template leverages [Remix SPA Mode](https://remix.run/docs/en/main/future/spa-mode) and the [Remix Vite Plugin](https://remix.run/docs/en/main/future/vite) to build your app as a Single-Page Application using [Client Data](https://remix.run/docs/en/main/guides/client-data) for all of your data loads and mutations.
+Welcome to my personal portfolio website! This README provides an overview of the project's structure, setup instructions, and other relevant information.
 
-## Setup
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Contact](#contact)
 
-```shellscript
-npx create-remix@latest --template remix-run/remix/templates/spa
-```
+## Project Overview
+This portfolio website showcases my projects, skills, and experience in web development. It is designed to provide a professional online presence and to highlight my work and accomplishments.
 
-## Development
+## Features
+- [ ] **Responsive Design**
+- [ ] **Project Showcase**:
+- [ ] **Dark / Light theme**:
+- [x] **About Me /home**: A personal introduction and background information.
 
-You can develop your SPA app just like you would a normal Remix app, via:
+## Technologies Used
+- **Dev env**: npm , Vite
+- **Frontend**: Remix, tailwindcss, framer-motion
+- **Backend**: Cloudflare Workers , Cloudflare D1 
+- **Deployment**: Cloudflare Pages
 
-```shellscript
-npm run dev
-```
 
-## Production
+## Contact
+If you have any questions or feedback, feel free to reach out:
 
-When you are ready to build a production version of your app, `npm run build` will generate your assets and an `index.html` for the SPA.
+- Email: hey@chetoui.dev
 
-```shellscript
-npm run build
-```
-
-### Preview
-
-You can preview the build locally with [vite preview](https://vitejs.dev/guide/cli#vite-preview) to serve all routes via the single `index.html` file:
-
-```shellscript
-npm run preview
-```
-
-> [!IMPORTANT]
->
-> `vite preview` is not designed for use as a production server
-
-### Deployment
-
-You can then serve your app from any HTTP server of your choosing. The server should be configured to serve multiple paths from a single root `/index.html` file (commonly called "SPA fallback"). Other steps may be required if the server doesn't directly support this functionality.
-
-For a simple example, you could use [sirv-cli](https://www.npmjs.com/package/sirv-cli):
-
-```shellscript
-npx sirv-cli build/client/ --single
-```
+Thank you for visiting my portfolio website!

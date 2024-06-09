@@ -35,7 +35,7 @@ export default function App() {
 
 export function HydrateFallback() {
   return (
-    <div className="container h-screen flex justify-center items-center">
+    <div className="container mx-auto h-screen flex justify-center items-center">
       <p><Loader/></p>
     </div>
   );

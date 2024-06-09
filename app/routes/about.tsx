@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
-import { Paragraph, SmallTitle } from "../components/Typography";
+import { Paragraph, HumanTitle } from "../components/Typography";
 import { AnimatePresence, motion } from "framer-motion";
 import { variants } from "~/utils/motion-variants";
 import { Key } from "~/utils/Location";
@@ -10,7 +10,7 @@ import { useOutletContext } from "@remix-run/react";
 export const meta: MetaFunction = () => {
   return [
     { title: "About" },
-    { name: "description", content: "About Hamza chetoui" },
+    { name: "description", content: "read resume about Hamza chetoui" },
   ];
 };
 
@@ -23,7 +23,7 @@ const RosenGroupWebsite = () => {
 };
 export default function About() {
   return (
-    <div className="container mx-auto flex justify-center">
+    <article className="container mx-auto flex justify-center">
       <div className="max-w-560 leading-8 text-zinc-500 ">
         <Paragraph>
           Self taught web developer, Completed the Master's Program at the
@@ -38,7 +38,7 @@ export default function About() {
         </Paragraph>
         <Paragraph>Let's craft something amazing together !</Paragraph>
         <hr />
-        <SmallTitle>Works</SmallTitle>
+        <HumanTitle>Works</HumanTitle>
         <Paragraph>
           <Link
             className="text-sm leading-tight font-medium text-black underline"
@@ -49,6 +49,6 @@ export default function About() {
         </Paragraph>
         {/* <Paragraph>last updated on 05/03/2024</Paragraph> */}
       </div>
-    </div>
+    </article>
   );
 }

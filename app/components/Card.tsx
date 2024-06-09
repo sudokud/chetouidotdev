@@ -1,19 +1,27 @@
-import { Paragraph, SmallTitle } from "./Typography";
+import { ArrowDownRight, ArrowRight } from "@geist-ui/icons";
+import { Paragraph, TitleDwarf } from "./Typography";
 
-const LinkToStrapiArticle = 'https://strapi.io/blog/how-to-create-an-api-with-strapi-by-rebuilding-the-mdn-express-js-local-library-website'
-export default function ArticleCard() {
+type cardProps = {
+  title : string,
+  resume: string,
+  linkToArticle: string
+}
+export default function ArticleCard({title, resume, linkToArticle}:cardProps) {
   return (
-    <div className="max-w-96 mx-auto border rounded-3xl overflow-hidden">
-      <div className="md:flex">
-        <div className="p-8">
-          <SmallTitle>Strapi local library web app</SmallTitle>
-          <Paragraph>CRUD web app built with Strapi.js and Next.js inspired by the Mozilla Developer Network Express.js tutorial series.</Paragraph>
-          <span className="">
-            <a href={LinkToStrapiArticle} className="text-sm leading-tight font-medium text-black underline">
-              Strapi.io
-            </a>
-          </span>
+    <div className="bg-white rounded-large border border-gray-a2 p-1">
+      <div className="md:flex  rounded-large bg-gray-a1">
+        <div className="px-6 py-3">
+          <TitleDwarf>{title}</TitleDwarf>
+          <Paragraph>
+          {resume} 
+          </Paragraph>
         </div>
+      </div>
+      <div className="py-2 rounded-large mt-1 bg-gray-a2 flex justify-center items-center">
+        <a href={linkToArticle} className="text-sm font-medium mx-1">
+          Link to article
+        </a>
+        <ArrowRight size={16} />
       </div>
     </div>
   );

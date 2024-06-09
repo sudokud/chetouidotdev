@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { easeOut, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import joinClasses from 'classnames'
 
 
@@ -7,28 +7,26 @@ type ChildrenProps = {
   className?: string,
   children: ReactElement | ReactElement[] | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null
 }
-const transition = 'opacity .32s cubic-bezier(.4,0,.6,1) 80ms,visibility .32s step-end 80ms'
 
 export const variants = {
   visible: {
     y:0,
     opacity:1,
     transition: {
-      type:'tween',
-      ease:[.4,0,.6,1],
-      duration:0.35,
-      when: "beforeChildren",
-      staggerChildren: 0.1
+      type:'spring',
+      duration: 0.4,
+      bounce: 0.3,
+      // when: "beforeChildren",
     }
   },
   hidden: {
-    y:30,
+    y:-12,
     opacity:0,
     transition: {
-      type:'tween',
-      ease:[.4,0,.6,1],
-      duration:0.35,
-      when: "afterChildren",
+      type:'spring',
+      duration: 0.4,
+      bounce: 0.3,
+      // when: "afterChildren",
     },
   }
 }
@@ -37,14 +35,16 @@ export const chilVariants = {
     y:0,
     opacity:1,
     transition: {
-      type:'spring'
+      type:'spring',
+      stiffness: 100
     }
   },
   hidden: {
     y:25,
-    opacity:0, 
+    opacity:0.3, 
     transition: {
-      type:'spring'
+      type:'spring',
+      stiffness: 100
     }
   },
 }
@@ -57,13 +57,13 @@ export const Modiv = ({ children, className }:ChildrenProps) => {
 const Page = ({ children, className }:ChildrenProps) => {
   return (
     <motion.main
-      initial="hidden"
+      initial={{ y: 12, opacity: 0}}
       animate="visible"
       exit="hidden"
       variants={variants}
       className={
         joinClasses(
-          "relative p-8 pb-4 px-2.5 lg:px-0",
+          "pt-3 gradient",
           className
         )}>
       {children}
