@@ -27,6 +27,6 @@ This portfolio website showcases my projects, skills, and experience in web deve
 ## Contact
 If you have any questions or feedback, feel free to reach out:
 
-- Email: hey@chetoui.dev
+- Email: hamza@chetoui.dev
 
 Thank you for visiting my portfolio website!
